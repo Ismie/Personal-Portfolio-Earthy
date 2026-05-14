@@ -39,11 +39,12 @@ export default function LoadingScreen({ onDone }: LoadingScreenProps) {
 
   useEffect(() => {
     const iv = setInterval(() => setFrame(f => (f + 1) % 8), 100);
+    let t2: ReturnType<typeof setTimeout>;
     const t = setTimeout(() => {
       setGone(true);
-      setTimeout(onDone, 320);
+      t2 = setTimeout(onDone, 320);
     }, 1500);
-    return () => { clearInterval(iv); clearTimeout(t); };
+    return () => { clearInterval(iv); clearTimeout(t); clearTimeout(t2); };
   }, [onDone]);
 
   const grid = frame % 2 === 0 ? poseA : poseB;
