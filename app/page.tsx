@@ -1,65 +1,140 @@
-import Image from "next/image";
+import Link from 'next/link';
+import TypewriterRole from '@/src/components/TypewriterRole';
+import ProjectCard from '@/src/components/ProjectCard';
+import Divider from '@/src/components/layout/Divider';
+import PixelSprite from '@/src/components/pixel/PixelSprite';
+import { projectsAll } from '@/src/data/projects';
 
-export default function Home() {
+const experience = [
+  {
+    period: 'seit 05.2024',
+    sub: '(Praktikum 04–05.2024)',
+    role: 'Programmierer / Full-Stack-Webentwickler',
+    company: 'Everscreen Medienagentur · Iserlohn',
+    desc: 'Agenturpraxis quer durchs Web: Laravel-Anwendungen, CMS-Pflege und -Entwicklung (TYPO3, WordPress, Shopware, JTL, XT-Commerce), Intranet-Systeme, Konfiguratoren, Performance-Tuning und Serveradministration für mittelständische Kunden.',
+  },
+];
+
+const skills = [
+  { label: 'Backend',    items: ['PHP', 'Laravel', 'Nova', 'Python', 'Java', 'Node.js'] },
+  { label: 'Frontend',   items: ['JavaScript', 'TypeScript', 'React', 'jQuery', 'HTML5', 'CSS3'] },
+  { label: 'CMS / Shop', items: ['TYPO3', 'WordPress', 'Shopware', 'JTL-Shop', 'XT-Commerce'] },
+  { label: 'Daten',      items: ['MySQL', 'MariaDB', 'SQL-Tuning', 'Dual-DB'] },
+  { label: 'DevOps',     items: ['Linux', 'Git', 'CI/CD', 'Hosting', 'Caching', 'Security'] },
+  { label: 'Marketing',  items: ['GA4', 'Google Ads', 'Matomo', 'SEO', 'KI-Anbindungen'] },
+];
+
+export default function HomePage() {
+  const featured = projectsAll.slice(0, 3);
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="page">
+      <section className="hero wrap">
+        <div className="hero-sprite">
+          <PixelSprite size={48} label="terminal.png" />
+        </div>
+        <h1 className="hero-name">Roman<span className="dot">.</span></h1>
+        <TypewriterRole />
+        <p className="hero-sub">
+          Full-Stack-Webentwickler mit Schwerpunkt auf Laravel, CMS-Lösungen und E-Commerce.
+          Ich baue Kundenportale, Intranets und Konfiguratoren — vom Konzept bis zur Pflege.
+          M.Sc. Medieninformatik, zuhause in Hemer.
+        </p>
+        <div className="hero-cta">
+          <Link href="/projekte" className="btn btn-primary">projekte ansehen →</Link>
+          <Link href="/kontakt" className="btn btn-ghost">kontakt aufnehmen</Link>
+        </div>
+      </section>
+
+      <Divider />
+
+      <section className="wrap about">
+        <div className="about-label">// über mich</div>
+        <div className="about-body">
+          <p>
+            Ich bin <strong>Full-Stack-Entwickler</strong> bei der Everscreen Medienagentur
+            in Iserlohn. Mein Tagesgeschäft sind <strong>maßgeschneiderte Laravel-Anwendungen</strong>,
+            Konzern-Intranets in TYPO3 und Shop-Lösungen für mittelständische Kunden — vom
+            ersten Architektur-Sketch bis zur fünf Jahre alten Bestandspflege.
+          </p>
+          <p>
+            Ich mag Systeme, die <strong>lange halten</strong>: saubere Datenmodelle, ehrliche
+            APIs, ein DX-Niveau, bei dem auch der Kollege in zwei Jahren noch weiß, was los
+            ist. Abseits des Bildschirms: 3D-Modellierung, Langstreckenlauf, Badminton.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <Divider />
+
+      <section className="wrap">
+        <div className="section-head">
+          <h2>// werdegang</h2>
+          <div className="meta">aktuell</div>
         </div>
-      </main>
+        <div className="exp-list">
+          {experience.map((x, i) => (
+            <div className="exp-row" key={i}>
+              <div className="exp-period">
+                <div>{x.period}</div>
+                {x.sub ? <div className="exp-sub">{x.sub}</div> : null}
+              </div>
+              <div className="exp-body">
+                <div className="exp-role">{x.role}</div>
+                <div className="exp-company">{x.company}</div>
+                <p className="exp-desc">{x.desc}</p>
+              </div>
+            </div>
+          ))}
+          <div className="exp-row">
+            <div className="exp-period"><div>10.2019 – 04.2023</div></div>
+            <div className="exp-body">
+              <div className="exp-role">M.Sc. Medieninformatik &amp; Interaktives Entertainment</div>
+              <div className="exp-company">Hochschule Mittweida</div>
+            </div>
+          </div>
+          <div className="exp-row">
+            <div className="exp-period"><div>09.2015 – 10.2019</div></div>
+            <div className="exp-body">
+              <div className="exp-role">B.Sc. Medieninformatik &amp; Interaktives Entertainment</div>
+              <div className="exp-company">Hochschule Mittweida</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      <section className="wrap">
+        <div className="section-head">
+          <h2>// stack</h2>
+          <div className="meta">womit ich täglich arbeite</div>
+        </div>
+        <div className="skills-grid">
+          {skills.map(s => (
+            <div className="skill-block" key={s.label}>
+              <div className="skill-label">{s.label}</div>
+              <div className="tags">
+                {s.items.map(t => <span className="tag" key={t}>{t}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Divider />
+
+      <section className="wrap">
+        <div className="section-head">
+          <h2>// ausgewählte projekte</h2>
+          <div className="meta">3 von {projectsAll.length}</div>
+        </div>
+        <div className="feat-list">
+          {featured.map(p => <ProjectCard key={p.name} p={p} />)}
+        </div>
+        <Link href="/projekte" className="see-all">
+          alle projekte <span className="arrow">→</span>
+        </Link>
+      </section>
     </div>
   );
 }
