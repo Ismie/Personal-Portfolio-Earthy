@@ -72,8 +72,8 @@ export default function HomePage() {
           <div className="meta">aktuell</div>
         </div>
         <div className="exp-list">
-          {experience.map((x, i) => (
-            <div className="exp-row" key={i}>
+          {experience.map((x) => (
+            <div className="exp-row" key={x.company}>
               <div className="exp-period">
                 <div>{x.period}</div>
                 {x.sub ? <div className="exp-sub">{x.sub}</div> : null}
