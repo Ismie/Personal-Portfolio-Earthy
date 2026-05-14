@@ -1,6 +1,6 @@
 // Home, Projects, Blog, Contact — content adapted to Roman Schulz's CV (DE)
 
-import { useState as useStateP, useEffect as useEffectP, useRef as useRefP } from 'react';
+import { useState as useStateP, useEffect as useEffectP } from 'react';
 import PixelSprite from '../components/pixel/PixelSprite';
 import Divider from '../components/layout/Divider';
 
