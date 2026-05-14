@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import PixelSprite from '@/src/components/pixel/PixelSprite';
 
 type FormState = { name: string; email: string; subject: string; message: string };
@@ -10,6 +10,16 @@ export default function ContactPage() {
   const [form, setForm] = useState<FormState>({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const innerTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      if (innerTimerRef.current) clearTimeout(innerTimerRef.current);
+    };
+  }, []);
 
   const validate = (): boolean => {
     const e: FormErrors = {};
@@ -26,16 +36,18 @@ export default function ContactPage() {
     ev.preventDefault();
     if (!validate()) return;
     setStatus('sending');
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setStatus('sent');
       setForm({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setStatus('idle'), 4000);
+      innerTimerRef.current = setTimeout(() => setStatus('idle'), 4000);
     }, 900);
   };
 
   const set = (k: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-      setForm({ ...form, [k]: e.target.value });
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const value = e.target.value;
+      setForm(prev => ({ ...prev, [k]: value }));
+    };
 
   return (
     <div className="page wrap">
