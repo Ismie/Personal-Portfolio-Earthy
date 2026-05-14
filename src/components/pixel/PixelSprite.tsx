@@ -1,6 +1,6 @@
-import React from 'react';
+import type { CSSProperties } from 'react';
 
-type PixelSpriteProps = { size?: number; label?: string; style?: React.CSSProperties };
+type PixelSpriteProps = { size?: number; label?: string; style?: CSSProperties };
 
 export default function PixelSprite({ size = 32, label, style = {} }: PixelSpriteProps) {
   return (
