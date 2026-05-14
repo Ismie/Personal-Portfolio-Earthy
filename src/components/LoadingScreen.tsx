@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-type LoadingScreenProps = { onDone: () => void };
+type LoadingScreenProps = { onDone: () => void; duration?: number };
 
 const poseA = [
   0,0,2,2,2,2,0,0,
@@ -33,7 +33,7 @@ const colors: Record<number, string> = {
   3: '#4ECBA0',
 };
 
-export default function LoadingScreen({ onDone }: LoadingScreenProps) {
+export default function LoadingScreen({ onDone, duration = 1500 }: LoadingScreenProps) {
   const [gone, setGone] = useState(false);
   const [frame, setFrame] = useState(0);
 
@@ -43,9 +43,9 @@ export default function LoadingScreen({ onDone }: LoadingScreenProps) {
     const t = setTimeout(() => {
       setGone(true);
       t2 = setTimeout(onDone, 320);
-    }, 1500);
+    }, duration);
     return () => { clearInterval(iv); clearTimeout(t); clearTimeout(t2); };
-  }, [onDone]);
+  }, [onDone, duration]);
 
   const grid = frame % 2 === 0 ? poseA : poseB;
 
