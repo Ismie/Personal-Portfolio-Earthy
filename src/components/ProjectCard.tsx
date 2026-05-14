@@ -1,6 +1,6 @@
 'use client';
 
-import type { Project } from '../data/projects';
+import type { Project } from '@/src/data/projects';
 
 export default function ProjectCard({ p }: { p: Project }) {
   return (
