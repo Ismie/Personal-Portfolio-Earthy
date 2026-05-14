@@ -1,40 +1,42 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import PixelAvatar from '../pixel/PixelAvatar';
 
-type NavProps = { route: string; setRoute: (route: string) => void };
-
 const pages = [
-  { key: 'home', label: '~/start' },
-  { key: 'projects', label: '~/projekte' },
-  { key: 'blog', label: '~/blog' },
-  { key: 'contact', label: '~/kontakt' },
+  { href: '/', label: '~/start' },
+  { href: '/projekte', label: '~/projekte' },
+  { href: '/blog', label: '~/blog' },
+  { href: '/kontakt', label: '~/kontakt' },
 ];
 
-export default function Nav({ route, setRoute }: NavProps) {
+export default function Nav() {
   const [open, setOpen] = useState(false);
-  const go = (k: string) => { setRoute(k); setOpen(false); window.scrollTo({ top: 0, behavior: 'instant' }); };
+  const pathname = usePathname();
+  const close = () => { setOpen(false); window.scrollTo({ top: 0, behavior: 'instant' }); };
+
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <a href="#" className="nav-brand" onClick={(e) => { e.preventDefault(); go('home'); }}>
+        <Link href="/" className="nav-brand" onClick={close}>
           <PixelAvatar size={24} />
           <span>roman-schulz.de</span>
-        </a>
+        </Link>
         <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
           {open ? '×' : '≡'}
         </button>
         <div className={`nav-links ${open ? 'open' : ''}`}>
           {pages.map(p => (
-            <a
-              key={p.key}
-              href="#"
-              className={`nav-link ${route === p.key ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); go(p.key); }}
+            <Link
+              key={p.href}
+              href={p.href}
+              className={`nav-link ${pathname === p.href ? 'active' : ''}`}
+              onClick={close}
             >
               {p.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
