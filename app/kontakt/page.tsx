@@ -77,11 +77,11 @@ export default function ContactPage() {
             offizielle Schreiben — alles andere geht digital.
           </p>
           <div className="contact-channels">
-            <a className="channel" href="mailto:romanschulz.kn@gmail.com">
+            <a className="channel" href="mailto:kontakt@romanschulz.com">
               <PixelSprite name="mail" size={32} />
               <div>
                 <div className="channel-label">e-mail</div>
-                <div className="channel-value">romanschulz.kn@gmail.com</div>
+                <div className="channel-value">kontakt@romanschulz.com</div>
               </div>
               <span className="channel-arrow">↗</span>
             </a>
@@ -102,11 +102,11 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            <a className="channel" href="#" onClick={(e) => e.preventDefault()}>
+            <a className="channel" href="https://www.linkedin.com/in/roman-schulz" target="_blank" rel="noopener noreferrer">
               <PixelSprite name="link" size={32} />
               <div>
                 <div className="channel-label">linkedin</div>
-                <div className="channel-value">in/romanschulz</div>
+                <div className="channel-value">roman-schulz</div>
               </div>
               <span className="channel-arrow">↗</span>
             </a>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 ? (
                     <>
                       das hat nicht geklappt — schreib mir gern direkt:{' '}
-                      <a href="mailto:romanschulz.kn@gmail.com">romanschulz.kn@gmail.com</a>
+                      <a href="mailto:kontakt@romanschulz.com">kontakt@romanschulz.com</a>
                     </>
                   )
                 : ''}

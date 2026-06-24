@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Roman Schulz · Full-Stack-Webentwickler';
+export const alt = 'Roman Schulz · Software Engineer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -28,7 +28,7 @@ export default function OpengraphImage() {
             <span style={{ color: '#C2613B' }}>.</span>
           </div>
           <div style={{ display: 'flex', fontSize: 34, color: '#5C5046', marginTop: 20 }}>
-            Full-Stack-Webentwickler · Laravel · TYPO3 · Shopware
+            Software Engineer · Web & Systeme · Laravel · TYPO3
           </div>
         </div>
         <div

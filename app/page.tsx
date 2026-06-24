@@ -9,7 +9,7 @@ const experience = [
   {
     period: 'seit 05.2024',
     sub: '(Praktikum 04–05.2024)',
-    role: 'Programmierer / Full-Stack-Webentwickler',
+    role: 'Software Engineer / Full-Stack-Entwickler',
     company: 'Everscreen Medienagentur · Iserlohn',
     desc: 'Agenturpraxis quer durchs Web: Laravel-Anwendungen, CMS-Pflege und -Entwicklung (TYPO3, WordPress, Shopware, JTL, XT-Commerce), Intranet-Systeme, Konfiguratoren, Performance-Tuning und Serveradministration für mittelständische Kunden.',
   },
@@ -30,14 +30,15 @@ export default function HomePage() {
     <div className="page">
       <section className="hero wrap">
         <div className="hero-sprite">
-          <PixelSprite name="terminal" size={132} label="terminal.png" />
+          <PixelSprite name="terminal" size={120} />
         </div>
-        <h1 className="hero-name">Roman<span className="dot">.</span></h1>
+        <div className="hero-eyebrow">roman schulz · software engineer</div>
+        <h1 className="hero-name">Software, die bleibt<span className="dot">.</span></h1>
         <TypewriterRole />
         <p className="hero-sub">
-          Full-Stack-Webentwickler mit Schwerpunkt auf Laravel, CMS-Lösungen und E-Commerce.
-          Ich baue Kundenportale, Intranets und Konfiguratoren — vom Konzept bis zur Pflege.
-          M.Sc. Medieninformatik, zuhause in Hemer.
+          <strong>Maßgeschneiderte Lösungen</strong> — Kundenportale, Intranets und
+          Konfiguratoren, vom Konzept bis zur Pflege. Schwerpunkt Laravel, CMS und
+          E-Commerce. M.Sc. Medieninformatik, zuhause in Hemer.
         </p>
         <div className="hero-cta">
           <Link href="/projekte" className="btn btn-primary">projekte ansehen →</Link>
@@ -51,10 +52,11 @@ export default function HomePage() {
         <div className="about-label">{'// über mich'}</div>
         <div className="about-body">
           <p>
-            Ich bin <strong>Full-Stack-Entwickler</strong> bei der Everscreen Medienagentur
-            in Iserlohn. Mein Tagesgeschäft sind <strong>maßgeschneiderte Laravel-Anwendungen</strong>,
-            Konzern-Intranets in TYPO3 und Shop-Lösungen für mittelständische Kunden — vom
-            ersten Architektur-Sketch bis zur fünf Jahre alten Bestandspflege.
+            Ich bin <strong>Software Engineer</strong> mit Web-Schwerpunkt — aktuell in einer
+            Medienagentur in Iserlohn. Mein Tagesgeschäft sind <strong>maßgeschneiderte
+            Laravel-Anwendungen</strong>, Konzern-Intranets in TYPO3 und Shop-Lösungen für
+            mittelständische Kunden — vom ersten Architektur-Sketch bis zur fünf Jahre alten
+            Bestandspflege.
           </p>
           <p>
             Ich mag Systeme, die <strong>lange halten</strong>: saubere Datenmodelle, ehrliche

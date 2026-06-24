@@ -276,11 +276,19 @@ a { color: inherit; }
 .hero > * { position: relative; z-index: 1; }
 .hero-sprite { display: flex; justify-content: center; margin-bottom: 22px; animation: rise .6s .05s both; }
 .hero-sprite canvas { animation: floaty 4.5s ease-in-out infinite; }
+.hero-eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+  animation: rise .6s .1s both;
+}
 .hero-name {
   font-family: var(--font-display), serif;
-  font-size: clamp(54px, 11vw, 108px);
+  font-size: clamp(38px, 7.5vw, 72px);
   letter-spacing: -.02em;
-  line-height: .92;
+  line-height: 1.04;
   animation: rise .6s .15s both;
 }
 .hero-name .dot { color: var(--clay); }

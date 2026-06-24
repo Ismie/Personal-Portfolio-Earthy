@@ -32,6 +32,8 @@ const terminal: Sprite = {
     px(6, 4, 20, 4, CL);
     px(6, 8, 20, 7, CM);
     px(6, 15, 20, 4, CD);
+    // power LED
+    px(23, 17, 1, 1, PTL);
     // screen
     px(8, 5, 16, 11, O);
     px(9, 6, 14, 9, SA);
@@ -41,10 +43,12 @@ const terminal: Sprite = {
     px(9, 10, 14, 1, SD);
     px(9, 12, 14, 1, SD);
     px(9, 14, 14, 1, SD);
-    // prompt + cursor
-    px(10, 8, 6, 1, SCR);
-    px(10, 11, 4, 1, SCR);
-    px(15, 11, 2, 1, SCR);
+    // prompt: ">" chevron + command + output line
+    px(10, 9, 1, 1, SCR);
+    px(11, 10, 1, 1, SCR);
+    px(10, 11, 1, 1, SCR);
+    px(13, 9, 3, 1, SCR);
+    px(13, 11, 5, 1, SCR);
     // neck + base
     px(14, 21, 4, 3, CD);
     px(14, 21, 1, 3, O);

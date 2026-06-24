@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 
 const roles = [
-  'full-stack-webentwickler · laravel · cms',
-  'typo3 · shopware · jtl-shop',
-  'agenturpraxis · iserlohn · seit 2024',
+  'laravel · php · saubere architektur',
+  'cms, shop & e-commerce',
+  'ai & agentic coding · claude code',
 ];
 
 export default function TypewriterRole() {

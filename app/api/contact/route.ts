@@ -25,7 +25,7 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: 'not_configured' }, { status: 503 });
   }
 
-  const to = process.env.CONTACT_TO ?? 'romanschulz.kn@gmail.com';
+  const to = process.env.CONTACT_TO ?? 'kontakt@romanschulz.com';
   const from = process.env.CONTACT_FROM ?? 'Portfolio <onboarding@resend.dev>';
 
   try {
