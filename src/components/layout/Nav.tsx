@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import PixelAvatar from '../pixel/PixelAvatar';
+import ThemeToggle from './ThemeToggle';
 
 const pages = [
   { href: '/', label: '~/start' },
@@ -22,11 +23,8 @@ export default function Nav() {
       <div className="nav-inner">
         <Link href="/" className="nav-brand" onClick={close}>
           <PixelAvatar size={24} />
-          <span>roman-schulz.de</span>
+          <span>romanschulz.com</span>
         </Link>
-        <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? '×' : '≡'}
-        </button>
         <div className={`nav-links ${open ? 'open' : ''}`}>
           {pages.map(p => (
             <Link
@@ -39,6 +37,10 @@ export default function Nav() {
             </Link>
           ))}
         </div>
+        <ThemeToggle />
+        <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
+          {open ? '×' : '≡'}
+        </button>
       </div>
     </nav>
   );

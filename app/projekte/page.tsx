@@ -1,6 +1,13 @@
+import type { Metadata } from 'next';
 import ProjectCard from '@/src/components/ProjectCard';
 import Divider from '@/src/components/layout/Divider';
 import { projectsAll } from '@/src/data/projects';
+
+export const metadata: Metadata = {
+  title: 'Projekte',
+  description:
+    'Auswahl aus der Agenturpraxis bei Everscreen — Laravel-Plattformen, TYPO3-Intranets, Konfiguratoren und Shop-Lösungen.',
+};
 
 export default function ProjectsPage() {
   return (
@@ -14,7 +21,7 @@ export default function ProjectsPage() {
         </p>
       </header>
       <div className="section-head">
-        <h2>// katalog</h2>
+        <h2>{'// katalog'}</h2>
         <div className="meta">{projectsAll.length} einträge</div>
       </div>
       <div className="project-list">

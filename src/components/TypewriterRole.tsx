@@ -21,7 +21,7 @@ export default function TypewriterRole() {
         timer = setTimeout(() => setText(target.slice(0, text.length + 1)), 45);
       } else {
         if (idx === roles.length - 1) {
-          setPhase('done');
+          timer = setTimeout(() => setPhase('done'), 0);
         } else {
           timer = setTimeout(() => setPhase('erasing'), 1700);
         }
@@ -30,8 +30,10 @@ export default function TypewriterRole() {
       if (text.length > 0) {
         timer = setTimeout(() => setText(text.slice(0, -1)), 24);
       } else {
-        setIdx((idx + 1) % roles.length);
-        setPhase('typing');
+        timer = setTimeout(() => {
+          setIdx((idx + 1) % roles.length);
+          setPhase('typing');
+        }, 0);
       }
     }
     return () => clearTimeout(timer);

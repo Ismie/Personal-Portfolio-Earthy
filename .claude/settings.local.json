@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Force)",
+      "Bash(Select-Object -ExpandProperty Name)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\roman\\\\Desktop\\\\Personal-Portfolio-Earthy-main\" -Recurse -Directory)",
+      "Bash(Select-Object -First 30)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\roman\\\\Desktop\\\\Personal-Portfolio-Earthy-main\" -Force)",
+      "Bash(Select-Object Name, PSIsContainer)",
+      "Bash(grep -r \"styled\\\\|emotion\\\\|css\\\\`\\\\|@media\\\\|keyframes\" \"C:\\\\Users\\\\roman\\\\Desktop\\\\Personal-Portfolio-Earthy-main\\\\app\" \"C:\\\\Users\\\\roman\\\\Desktop\\\\Personal-Portfolio-Earthy-main\\\\src\")",
+      "Bash(xargs -r ls -l)",
+      "mcp__visualize__read_me",
+      "mcp__visualize__show_widget"
+    ]
+  }
+}

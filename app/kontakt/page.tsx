@@ -9,14 +9,12 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 export default function ContactPage() {
   const [form, setForm] = useState<FormState>({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const innerTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     return () => {
-      if (timerRef.current) clearTimeout(timerRef.current);
       if (innerTimerRef.current) clearTimeout(innerTimerRef.current);
     };
   }, []);
@@ -32,15 +30,27 @@ export default function ContactPage() {
     return Object.keys(e).length === 0;
   };
 
-  const submit = (ev: React.FormEvent) => {
+  const submit = async (ev: React.FormEvent) => {
     ev.preventDefault();
     if (!validate()) return;
     setStatus('sending');
-    timerRef.current = setTimeout(() => {
-      setStatus('sent');
-      setForm({ name: '', email: '', subject: '', message: '' });
-      innerTimerRef.current = setTimeout(() => setStatus('idle'), 4000);
-    }, 900);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', subject: '', message: '' });
+        innerTimerRef.current = setTimeout(() => setStatus('idle'), 6000);
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   const set = (k: keyof FormState) =>
@@ -68,7 +78,7 @@ export default function ContactPage() {
           </p>
           <div className="contact-channels">
             <a className="channel" href="mailto:romanschulz.kn@gmail.com">
-              <PixelSprite size={32} />
+              <PixelSprite name="mail" size={32} />
               <div>
                 <div className="channel-label">e-mail</div>
                 <div className="channel-value">romanschulz.kn@gmail.com</div>
@@ -76,7 +86,7 @@ export default function ContactPage() {
               <span className="channel-arrow">↗</span>
             </a>
             <a className="channel" href="tel:+4915905301529">
-              <PixelSprite size={32} />
+              <PixelSprite name="phone" size={32} />
               <div>
                 <div className="channel-label">telefon</div>
                 <div className="channel-value">+49 159 05301529</div>
@@ -84,7 +94,7 @@ export default function ContactPage() {
               <span className="channel-arrow">↗</span>
             </a>
             <div className="channel" style={{ cursor: 'default' }}>
-              <PixelSprite size={32} />
+              <PixelSprite name="pin" size={32} />
               <div>
                 <div className="channel-label">postanschrift</div>
                 <div className="channel-value" style={{ lineHeight: 1.5 }}>
@@ -93,7 +103,7 @@ export default function ContactPage() {
               </div>
             </div>
             <a className="channel" href="#" onClick={(e) => e.preventDefault()}>
-              <PixelSprite size={32} />
+              <PixelSprite name="link" size={32} />
               <div>
                 <div className="channel-label">linkedin</div>
                 <div className="channel-value">in/romanschulz</div>
@@ -124,8 +134,19 @@ export default function ContactPage() {
             {errors.message ? <span className="err">{errors.message}</span> : null}
           </div>
           <div className="form-foot">
-            <div className="form-status">
-              {status === 'sending' ? 'sende…' : status === 'sent' ? '✓ danke — ich melde mich innerhalb von ein, zwei tagen.' : ''}
+            <div className={`form-status ${status === 'error' ? 'is-error' : ''}`}>
+              {status === 'sending'
+                ? 'sende…'
+                : status === 'sent'
+                ? '✓ danke — ich melde mich innerhalb von ein, zwei tagen.'
+                : status === 'error'
+                ? (
+                    <>
+                      das hat nicht geklappt — schreib mir gern direkt:{' '}
+                      <a href="mailto:romanschulz.kn@gmail.com">romanschulz.kn@gmail.com</a>
+                    </>
+                  )
+                : ''}
             </div>
             <button type="submit" className="btn btn-primary" disabled={status === 'sending'}>
               {status === 'sending' ? 'sende…' : 'senden →'}

@@ -30,7 +30,7 @@ export default function HomePage() {
     <div className="page">
       <section className="hero wrap">
         <div className="hero-sprite">
-          <PixelSprite size={48} label="terminal.png" />
+          <PixelSprite name="terminal" size={132} label="terminal.png" />
         </div>
         <h1 className="hero-name">Roman<span className="dot">.</span></h1>
         <TypewriterRole />
@@ -48,7 +48,7 @@ export default function HomePage() {
       <Divider />
 
       <section className="wrap about">
-        <div className="about-label">// über mich</div>
+        <div className="about-label">{'// über mich'}</div>
         <div className="about-body">
           <p>
             Ich bin <strong>Full-Stack-Entwickler</strong> bei der Everscreen Medienagentur
@@ -68,7 +68,7 @@ export default function HomePage() {
 
       <section className="wrap">
         <div className="section-head">
-          <h2>// werdegang</h2>
+          <h2>{'// werdegang'}</h2>
           <div className="meta">aktuell</div>
         </div>
         <div className="exp-list">
@@ -106,7 +106,7 @@ export default function HomePage() {
 
       <section className="wrap">
         <div className="section-head">
-          <h2>// stack</h2>
+          <h2>{'// stack'}</h2>
           <div className="meta">womit ich täglich arbeite</div>
         </div>
         <div className="skills-grid">
@@ -125,7 +125,7 @@ export default function HomePage() {
 
       <section className="wrap">
         <div className="section-head">
-          <h2>// ausgewählte projekte</h2>
+          <h2>{'// ausgewählte projekte'}</h2>
           <div className="meta">3 von {projectsAll.length}</div>
         </div>
         <div className="feat-list">
