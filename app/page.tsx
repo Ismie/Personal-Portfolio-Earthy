@@ -25,7 +25,7 @@ const skills = [
 ];
 
 export default function HomePage() {
-  const featured = projectsAll.slice(0, 3);
+  const featured = projectsAll.filter(p => p.featured);
   return (
     <div className="page">
       <section className="hero wrap">
