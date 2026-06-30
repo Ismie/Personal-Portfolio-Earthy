@@ -1,0 +1,7 @@
+# Netlify-Konfiguration.
+# CONTACT_TO und CONTACT_FROM sind öffentliche E-Mail-Adressen (Kontaktseite,
+# Footer, Impressum) — keine Geheimnisse. Vom Secrets-Scanning ausnehmen, damit
+# der Build nicht fälschlich an diesen Werten scheitert.
+# Das echte Secret RESEND_API_KEY wird weiterhin gescannt.
+[build.environment]
+  SECRETS_SCAN_OMIT_KEYS = "CONTACT_TO,CONTACT_FROM"
