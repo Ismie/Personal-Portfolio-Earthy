@@ -10,7 +10,10 @@
       "Bash(grep -r \"styled\\\\|emotion\\\\|css\\\\`\\\\|@media\\\\|keyframes\" \"C:\\\\Users\\\\roman\\\\Desktop\\\\Personal-Portfolio-Earthy-main\\\\app\" \"C:\\\\Users\\\\roman\\\\Desktop\\\\Personal-Portfolio-Earthy-main\\\\src\")",
       "Bash(xargs -r ls -l)",
       "mcp__visualize__read_me",
-      "mcp__visualize__show_widget"
+      "mcp__visualize__show_widget",
+      "Bash(xargs ls -la)",
+      "Bash(metadata)",
+      "Bash(server\")"
     ]
   }
 }

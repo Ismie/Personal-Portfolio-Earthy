@@ -980,11 +980,11 @@ export default function ContactPage() {
             offizielle Schreiben — alles andere geht digital.
           </p>
           <div className="contact-channels">
-            <a className="channel" href="mailto:romanschulz.kn@gmail.com">
+            <a className="channel" href="mailto:kontakt@romanschulz.com">
               <PixelSprite size={32} />
               <div>
                 <div className="channel-label">e-mail</div>
-                <div className="channel-value">romanschulz.kn@gmail.com</div>
+                <div className="channel-value">kontakt@romanschulz.com</div>
               </div>
               <span className="channel-arrow">↗</span>
             </a>

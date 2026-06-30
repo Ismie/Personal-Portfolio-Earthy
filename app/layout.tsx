@@ -70,7 +70,7 @@ export const metadata: Metadata = {
 const themeInit = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';}document.documentElement.dataset.theme=t;}catch(e){}})();`;
 
 const SITE_URL = 'https://romanschulz.com';
-const LINKEDIN_URL = 'https://www.linkedin.com/in/roman-schulz';
+const LINKEDIN_URL = 'https://www.linkedin.com/in/roman-schulz~';
 
 // Structured data (schema.org) for search engines and AI. Person + WebSite.
 const jsonLd = {

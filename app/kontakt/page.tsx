@@ -102,7 +102,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            <a className="channel" href="https://www.linkedin.com/in/roman-schulz" target="_blank" rel="noopener noreferrer">
+            <a className="channel" href="https://www.linkedin.com/in/roman-schulz~" target="_blank" rel="noopener noreferrer">
               <PixelSprite name="link" size={32} />
               <div>
                 <div className="channel-label">linkedin</div>
