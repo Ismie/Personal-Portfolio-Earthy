@@ -261,7 +261,7 @@ a { color: inherit; }
 .btn-ghost:hover { color: var(--clay); border-color: var(--clay); background: rgba(194,97,59,.06); }
 
 /* ---------- hero ---------- */
-.hero { position: relative; text-align: center; padding-block: 80px 56px; }
+.hero { position: relative; overflow: hidden; text-align: center; padding-block: 80px 56px; }
 .hero::before {
   content: "";
   position: absolute;
