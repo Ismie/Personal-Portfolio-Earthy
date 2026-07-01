@@ -733,6 +733,9 @@ a { color: inherit; }
 }
 @media (max-width: 640px) {
   .exp-row { grid-template-columns: 1fr; gap: 6px; }
+
+  .project-top { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .project-aside { flex-direction: row; align-items: flex-start; flex-wrap: wrap; width: 100%; }
 }
 
 /* ---------- reduced motion ---------- */
